@@ -47,11 +47,11 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: null,
       },
       course_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         defaultValue: null,
       },
       module_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         defaultValue: null,
       },
       chapter_part: {
@@ -77,6 +77,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      timestamps: false,
       tableName: "favourite_videos",
       modelName: "Favourite_videos",
     }

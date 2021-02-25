@@ -41,6 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
+      timestamps: false,
       tableName: "playlist_list",
       modelName: "Playlist_list",
     }

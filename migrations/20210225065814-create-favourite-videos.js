@@ -36,11 +36,11 @@ module.exports = {
         defaultValue: null,
       },
       course_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         defaultValue: null,
       },
       module_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         defaultValue: null,
       },
       chapter_part: {
