@@ -3,16 +3,16 @@ module.exports = {
   up: async (queryInterface, DataTypes) => {
     await queryInterface.createTable("chapters", {
       chapter_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
         primaryKey: true,
+        allowNull: false,
       },
       course_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       module_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       chapter_part: {

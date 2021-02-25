@@ -14,15 +14,16 @@ module.exports = (sequelize, DataTypes) => {
   Chapter.init(
     {
       chapter_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
       },
       course_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       module_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       chapter_part: {

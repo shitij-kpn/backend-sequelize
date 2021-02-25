@@ -14,8 +14,9 @@ module.exports = (sequelize, DataTypes) => {
   Favourite_videos.init(
     {
       favourite_videos_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
+        primaryKey: true,
       },
       email_id: {
         type: DataTypes.STRING,

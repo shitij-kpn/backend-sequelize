@@ -17,14 +17,14 @@ module.exports = (sequelize, DataTypes) => {
       sno: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        primaryKey: true,
       },
       module_id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       course_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       module_part: {

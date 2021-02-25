@@ -3,7 +3,7 @@ module.exports = {
   up: async (queryInterface, DataTypes) => {
     await queryInterface.createTable("favourite_videos", {
       favourite_videos_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
       },

@@ -16,13 +16,11 @@ module.exports = (sequelize, DataTypes) => {
       sno: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        autoIncrement: true,
+        primaryKey: true,
       },
       video_id: {
-        primaryKey: true,
-        type: DataTypes.UUID,
+        type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: DataTypes.UUIDV4,
       },
       playlist: {
         type: DataTypes.STRING,

@@ -5,16 +5,14 @@ module.exports = {
       sno: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        autoIncrement: true,
+        primaryKey: true,
       },
       module_id: {
-        primaryKey: true,
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       course_id: {
-        type: DataTypes.UUID,
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       module_part: {
