@@ -4,9 +4,9 @@ const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 
-const { sequelize, PhoneNumbers, OTP } = require("./models");
-const generateOTP = require("./utils/generateOTP");
-const sendOTP = require("./utils/sendOTP");
+const { sequelize } = require("./models");
+
+const otpRouter = require("./routes/otpRouter");
 
 const app = express();
 
@@ -39,52 +39,10 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/register", async (req, res) => {
-  const { number } = req.body;
-  try {
-    const exists = await PhoneNumbers.findOne({
-      where: {
-        phonenumber: number,
-      },
-    });
-    if (!exists) {
-      const otp = generateOTP();
-      const added = await OTP.create({
-        phonenumber: number,
-        otp,
-      });
-      await sendOTP({ otp, number });
-      res.send(`OTP sent to number ${number} and your otp is ${otp}`);
-    } else {
-      res.send(`This number already exists`);
-    }
-  } catch (error) {
-    res.json(error);
-  }
-});
+app.use("/api/v1/otp", otpRouter);
 
-app.post("/verify", async (req, res) => {
-  const { name, phonenumber, otp } = req.body;
-  try {
-    const verifyOTP = await OTP.findOne({
-      where: {
-        phonenumber,
-        otp,
-      },
-    });
-    if (verifyOTP) {
-      await verifyOTP.destroy();
-      await PhoneNumbers.create({
-        name,
-        phonenumber,
-      });
-      res.send(`congrats ${phonenumber} verfied`);
-    } else {
-      res.send(`wrong`);
-    }
-  } catch (error) {
-    return res.json(error);
-  }
+app.all("*", (req, res) => {
+  res.status(404).send("404");
 });
 
 app.listen(5000, async () => {
