@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { PhoneNumbers, OTP } = require("./../models");
+const { Client, OTP } = require("./../models");
 const generateOTP = require("./../utils/generateOTP");
 
 const catchAsync = require("../utils/catchAsync");
@@ -10,8 +10,8 @@ const signToken = (phonenumber) => {
   });
 };
 
-const createSendToken = (user, statusCode, res) => {
-  const token = signToken(user.phonenumber);
+const createSendToken = (client, statusCode, res) => {
+  const token = signToken(client.phonenumber);
   const cookieOptions = {
     expires: new Date(
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
@@ -26,13 +26,13 @@ const createSendToken = (user, statusCode, res) => {
     status: "success",
     token,
     data: {
-      user,
+      client,
     },
   });
 };
 
 const checkIfUserExists = async (phonenumber) => {
-  return PhoneNumbers.findOne({
+  return Client.findOne({
     where: {
       phonenumber,
     },
@@ -79,7 +79,7 @@ exports.verifyOTP = catchAsync(async (req, res) => {
       createSendToken(exists, 200, res);
     } else {
       await verifyOTP.destroy();
-      const newUser = await PhoneNumbers.create({
+      const newUser = await Client.create({
         name,
         phonenumber,
         from_ip,
