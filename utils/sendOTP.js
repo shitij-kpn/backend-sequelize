@@ -1,9 +1,9 @@
 const axios = require("axios");
 
-const sendOTP = async ({ otp, number }) => {
+const sendOTP = async ({ otp, phonenumber }) => {
   const apistring = `http://api.msg91.com/api/v2/sendsms?authkey=${
     process.env.AUTH_KEY
-  }&mobiles=${number}&message=${
+  }&mobiles=${phonenumber}&message=${
     "Your otp is" + otp
   }&sender=MSGIND&route=4&country=91`;
   try {

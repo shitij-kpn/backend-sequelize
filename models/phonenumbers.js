@@ -10,6 +10,16 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
+    toJSON() {
+      return {
+        ...this.get(),
+        id: undefined,
+        from_ip: undefined,
+        from_device: undefined,
+        createdAt: undefined,
+        updatedAt: undefined,
+      };
+    }
   }
   PhoneNumbers.init(
     {
@@ -24,7 +34,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       userId: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUidV4,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      from_ip: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      from_device: {
+        type: DataTypes.STRING,
+        allowNull: false,
       },
     },
     {

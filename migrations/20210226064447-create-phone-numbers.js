@@ -21,6 +21,14 @@ module.exports = {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUidV4,
       },
+      from_ip: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      from_device: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: DataTypes.DATE,
