@@ -1,8 +1,11 @@
 # for config.env
 
-AUTH_KEY=
+```
+    AUTH_KEY=
 
-NODE_ENV=development
+    NODE_ENV=development
 
-JWT_SECRET=password
-JWT_EXPIRES_IN=60
+    JWT_SECRET=password
+    JWT_EXPIRES_IN=60
+
+```
