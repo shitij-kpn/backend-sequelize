@@ -1,6 +1,7 @@
 - clone
 - make changes to config.json
 - create a config.env in root directory
+- get auth key from msg91.com
 
 ```
     AUTH_KEY=
