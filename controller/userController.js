@@ -42,5 +42,10 @@ exports.getUser = catchAsync(async (req, res) => {
     return res.send("this user does not exist anymore");
   }
 
-  res.status(200).json(currentUser);
+  res.status(200).json({
+    status: "success",
+    data: {
+      user: currentUser,
+    },
+  });
 });
