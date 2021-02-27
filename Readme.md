@@ -1,9 +1,5 @@
-- clone and npm i
-
-- sequelize db:create <database name>
-
+- clone
 - make changes to config.json
-
 - create a config.env in root directory
 
 ```
@@ -13,6 +9,9 @@
     JWT_EXPIRES_IN=60
 ```
 
-- sequelize db:migrate
-
-- npm start
+```
+npm i
+sequelize db:create <database name>
+sequelize db:migrate
+npm start
+```
