@@ -34,8 +34,8 @@ exports.getModule = catchAsync(async (req, res) => {
 
 exports.getModuleFromCourse = catchAsync(async (req, res) => {
   const { course_id } = req.params;
-  const module = await Course.findOne({
-    where: { sno },
+  const module = await Course.finAll({
+    where: { course_id },
   });
   if (module) {
     res.status(200).json({
