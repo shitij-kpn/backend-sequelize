@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const { Client, OTP } = require("./../models");
 const generateOTP = require("./../utils/generateOTP");
+const { promisify } = require("util");
 
 const catchAsync = require("../utils/catchAsync");
 
