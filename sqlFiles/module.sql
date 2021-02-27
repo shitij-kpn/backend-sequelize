@@ -1,4 +1,4 @@
-INSERT INTO module (sno, module_id, course_id, module_part, module_name, module_desc, module_time, module_browser, module_ip) VALUES
+INSERT INTO modules (sno, module_id, course_id, module_part, module_name, module_desc, module_time, module_browser, module_ip) VALUES
 (1, 1, '1', 'week1', 'Introduction to The Stock Market', '', '', '', ''),
 (2, 2, '1', 'week2', 'Fundamental Analysis of a Stock', '', '', '', ''),
 (3, 3, '1', 'week3', 'Technical Analysis of a Stock', '', '', '', ''),

@@ -16,8 +16,6 @@ module.exports = (sequelize, DataTypes) => {
         id: undefined,
         from_ip: undefined,
         from_device: undefined,
-        createdAt: undefined,
-        updatedAt: undefined,
       };
     }
   }
@@ -47,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      timestamp: false,
+      timestamps: false,
       tableName: "client",
       modelName: "Client",
     }

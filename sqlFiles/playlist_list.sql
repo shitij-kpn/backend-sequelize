@@ -1,4 +1,4 @@
-INSERT INTO playlist_list (sno, playlist_id, title, published_at, img_standard, img_max_res) VALUES
+INSERT INTO playlist_lists (sno, playlist_id, title, published_at, img_standard, img_max_res) VALUES
 (1, 'PLcslWfyre80v_87ZCvTDZshAZ6SM-VYTO', 'Best Exchanges To Buy Cryptocurrencies', '2021-02-17T12:32:41Z', 'https://i.ytimg.com/vi/QpPiotPZGjM/sddefault.jpg', 'https://i.ytimg.com/vi/QpPiotPZGjM/maxresdefault.jpg'),
 (2, 'PLcslWfyre80vp68KHTa6yPHAZwS0REmuf', 'Easyfi- Lending Protocol for Digital Assets', '2021-02-13T10:55:29Z', 'https://i.ytimg.com/vi/lpSoW_m3sCU/sddefault.jpg', 'https://i.ytimg.com/vi/lpSoW_m3sCU/maxresdefault.jpg'),
 (3, 'PLcslWfyre80tEr7jzK-zyItc-LYBKUcSU', 'Cryptocurrency Customer Support', '2021-02-12T06:02:14Z', 'https://i.ytimg.com/vi/6A9upOATbUY/sddefault.jpg', 'https://i.ytimg.com/vi/6A9upOATbUY/maxresdefault.jpg'),

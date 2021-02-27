@@ -9,20 +9,12 @@ module.exports = {
         type: DataType.INTEGER,
       },
       phonenumber: {
-        type: DataTypes.BIGINT,
+        type: DataType.BIGINT,
         allowNull: false,
       },
       otp: {
-        type: DataTypes.INTEGER,
+        type: DataType.INTEGER,
         allowNull: false,
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataType.DATE,
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataType.DATE,
       },
     });
   },

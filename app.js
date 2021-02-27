@@ -7,6 +7,7 @@ const helmet = require("helmet");
 const { sequelize } = require("./models");
 
 const otpRouter = require("./routes/otpRouter");
+const courseRouter = require("./routes/courseRoutes");
 
 const app = express();
 
@@ -40,6 +41,8 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/otp", otpRouter);
+
+app.use("/api/v1/courses", courseRouter);
 
 app.all("*", (req, res) => {
   res.status(404).send("404");

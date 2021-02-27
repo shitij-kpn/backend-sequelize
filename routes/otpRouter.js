@@ -8,9 +8,12 @@ const {
   resendOTP,
 } = require("./../controller/authController");
 
-router.post("/register", register);
-router.post("/verify", verifyOTP);
-router.post("/login", login);
-router.post("/resend", resendOTP);
+router.route("/register").post(register);
+
+router.route("/verify").post(verifyOTP);
+
+router.route("/login").post(login);
+
+router.route("/resend").post(resendOTP);
 
 module.exports = router;
