@@ -11,7 +11,7 @@
 
 ```
 npm i
-sequelize db:create <database name>
+sequelize db:create
 sequelize db:migrate
 npm start
 ```
