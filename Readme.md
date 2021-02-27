@@ -16,6 +16,8 @@ sequelize db:migrate
 npm start
 ```
 
+No seeder files so have to manually execute sql files one by one to initialize data
+
 # Routes
 
 ## courses
