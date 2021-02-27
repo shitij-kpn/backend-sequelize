@@ -102,8 +102,6 @@ exports.resendOTP = catchAsync(async (req, res) => {
 
   if (exists) {
     await exists.destroy();
-    await generateOTP(phonenumber, res);
-  } else {
-    await generateOTP(phonenumber, res);
   }
+  await generateOTP(phonenumber, res);
 });

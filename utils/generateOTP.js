@@ -1,5 +1,6 @@
 const { OTP } = require("./../models");
 const axios = require("axios");
+const catchAsync = require("./catchAsync");
 
 function getOTP() {
   let otp = Math.random();
@@ -8,20 +9,15 @@ function getOTP() {
   return otp;
 }
 
-const sendOTP = async (otp, phonenumber) => {
+const sendOTP = catchAsync(async (otp, phonenumber) => {
   const apistring = `http://api.msg91.com/api/v2/sendsms?authkey=${
     process.env.AUTH_KEY
   }&mobiles=${phonenumber}&message=${
     "Your otp is" + otp
   }&sender=MSGIND&route=4&country=91`;
-  try {
-    const response = await axios.get(apistring);
-    console.log("OTP sent");
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
-};
+  const response = await axios.get(apistring);
+  console.log("OTP sent");
+});
 
 const generateOTP = async (phonenumber, res) => {
   const otp = getOTP();
