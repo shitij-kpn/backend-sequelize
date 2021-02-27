@@ -2,8 +2,11 @@ const { Course, Module } = require("../models");
 const catchAsync = require("../utils/catchAsync");
 
 exports.getAllCourses = catchAsync(async (req, res) => {
-  const courses = await Course.findAll();
+  const courses = await Course.findAll({ include: [Module] });
 
+  if (!courses) {
+    return res.send("there are no courses in the table");
+  }
   res.status(200).json({
     status: "success",
     data: {
