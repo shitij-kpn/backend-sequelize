@@ -23,12 +23,13 @@ No seeder files so have to manually execute sql files one by one to initialize d
 
 ## courses
 
-- /api/v1/courses
-- /api/v1/courses/:course_id
+- /api/v1/courses (get)
+- /api/v1/courses/:course_id (get)
+- api/v1/courses/checkout/:course_id (post)
 
 ## otp
 
-- /api/v1/otp/register
-- /api/v1/otp/login
-- /api/v1/otp/verify
-- /api/v1/otp/resend
+- /api/v1/otp/register (post)
+- /api/v1/otp/login (post)
+- /api/v1/otp/verify (post)
+- /api/v1/otp/resend (post)

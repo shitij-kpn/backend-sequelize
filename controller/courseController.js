@@ -32,3 +32,22 @@ exports.getCourse = catchAsync(async (req, res) => {
     res.send("this course does not exist");
   }
 });
+
+exports.checkout = catchAsync(async (req, res) => {
+  console.log(res.user);
+  const { course_id } = req.params;
+  const course = await Course.findOne({
+    where: { course_id },
+    include: [Module],
+  });
+  if (course) {
+    res.status(200).json({
+      status: "success",
+      data: {
+        course,
+      },
+    });
+  } else {
+    res.send("checkout failed");
+  }
+});
