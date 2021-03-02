@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { Client, OTP } = require("./../models");
+const { Client, OTP, OTPHistory } = require("./../models");
 const generateOTP = require("./../utils/generateOTP");
 const { promisify } = require("util");
 
@@ -41,7 +41,13 @@ const checkIfUserExists = async (phonenumber) => {
 };
 
 exports.register = catchAsync(async (req, res) => {
-  const { phonenumber } = req.body;
+  const { phonenumber, from_ip, from_device } = req.body;
+  await OTPHistory.create({
+    phonenumber,
+    route: "register",
+    from_device,
+    from_ip,
+  });
   const exists = await checkIfUserExists(phonenumber);
   if (!exists) {
     await generateOTP(phonenumber, res);
@@ -51,7 +57,13 @@ exports.register = catchAsync(async (req, res) => {
 });
 
 exports.login = catchAsync(async (req, res) => {
-  const { phonenumber } = req.body;
+  const { phonenumber, from_ip, from_device } = req.body;
+  await OTPHistory.create({
+    phonenumber,
+    route: "login",
+    from_device,
+    from_ip,
+  });
   try {
     const exists = await checkIfUserExists(phonenumber);
     if (!exists) {
@@ -94,7 +106,13 @@ exports.verifyOTP = catchAsync(async (req, res) => {
 });
 
 exports.resendOTP = catchAsync(async (req, res) => {
-  const { phonenumber } = req.body;
+  const { phonenumber, from_ip, from_device } = req.body;
+  await OTPHistory.create({
+    phonenumber,
+    route: "login",
+    from_device,
+    from_ip,
+  });
   const exists = await OTP.findOne({
     where: {
       phonenumber,
